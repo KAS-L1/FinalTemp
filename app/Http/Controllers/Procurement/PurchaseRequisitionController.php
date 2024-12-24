@@ -13,34 +13,36 @@ class PurchaseRequisitionController extends Controller
         $requisitions = PurchaseRequisition::with(['vendor', 'creator'])->paginate(10);
 
         // Pass the data to the Blade view
-        return view('procurement.requisitions.index', compact('requisitions'));
+        // return view('procurement.requisitions.index', compact('requisitions'));
+
+        return response()->json($requisitions);
     }
 
     public function show($id)
     {
         $requisition = PurchaseRequisition::with(['vendor', 'creator', 'purchaseItems.product'])->findOrFail($id);
 
-        // return response()->json([
-        //     'requisition_id' => $requisition->requisition_id,
-        //     'vendor' => $requisition->vendor ? [
-        //         'id' => $requisition->vendor->user_id,
-        //         'company' => $requisition->vendor->company,
-        //         'name' => $requisition->vendor->full_name,
-        //     ] : null,
-        //     'creator' => $requisition->creator ? [
-        //         'id' => $requisition->creator->user_id,
-        //         'name' => $requisition->creator->full_name,
-        //     ] : null,
-        //     'total_quantity' => $requisition->total_quantity,
-        //     'total_cost' => $requisition->total_cost,
-        //     'total_price' => $requisition->total_price,
-        //     'priority' => $requisition->priority,
-        //     'request_date' => $requisition->request_date,
-        //     'status' => $requisition->status,
-        //     'purchase_items' => $requisition->purchaseItems,
-        // ]);
+        return response()->json([
+            'requisition_id' => $requisition->requisition_id,
+            'vendor' => $requisition->vendor ? [
+                'id' => $requisition->vendor->user_id,
+                'company' => $requisition->vendor->company,
+                'name' => $requisition->vendor->full_name,
+            ] : null,
+            'creator' => $requisition->creator ? [
+                'id' => $requisition->creator->user_id,
+                'name' => $requisition->creator->full_name,
+            ] : null,
+            'total_quantity' => $requisition->total_quantity,
+            'total_cost' => $requisition->total_cost,
+            'total_price' => $requisition->total_price,
+            'priority' => $requisition->priority,
+            'request_date' => $requisition->request_date,
+            'status' => $requisition->status,
+            'purchase_items' => $requisition->purchaseItems,
+        ]);
 
-        return view('procurement.requisitions.show', compact('requisition'));
+        // return view('procurement.requisitions.show', compact(var_name: 'requisition'));
     }
 
     public function store(Request $request)
