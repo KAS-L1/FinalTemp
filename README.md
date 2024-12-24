@@ -42,8 +42,8 @@ This application leverages the following tools and technologies:
 
 - **Frontend Template**: [Able Pro Admin Template](https://codedthemes.com/item/able-pro-free-bootstrap-5-admin-template/)
 - **Backend Framework**: Laravel
-- **API Authentication**: Laravel Sanctum
-- **Role and Permission Management**: Laravel Spatie Permission
+- **API Authentication**: Laravel Sanctum ([Documentation](https://laravel.com/docs/11.x/sanctum))
+- **Role and Permission Management**: Laravel Spatie Permission ([Documentation](https://spatie.be/docs/laravel-permission/v6/installation-laravel))
 
 ---
 
@@ -106,6 +106,16 @@ The application uses **Laravel Sanctum** for API token authentication.
 ## **Contributing**
 
 Contributions are welcome! Please fork the repository and submit a pull request for any feature additions or bug fixes.
+
+---
+
+## **Author**
+
+Kier Salise aka KAS-L
+
+- Full Stack Developer
+
+- Lead Programmer
 
 ---
 
