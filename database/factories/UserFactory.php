@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 /**
@@ -11,34 +11,36 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-    /**
-     * The current password being used by the factory.
-     */
-    protected static ?string $password;
+    protected $model = User::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
+        $firstName = $this->faker->firstName();
+        $lastName = $this->faker->lastName();
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'id' => (string) Str::uuid(), // Generate a unique UUID for `id`
+            'user_id' => $this->generateCustomUserId(), // Generate a 6-digit ID starting with 11
+            'first_name' => $firstName,
+            'last_name' => $lastName,
+            'username' => strtolower($firstName) . '.' . strtolower($lastName),
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => bcrypt('password'), // Default password
+            'address' => $this->faker->address(),
+            'contact' => $this->faker->phoneNumber(),
+            'profile_picture' => $this->faker->imageUrl(200, 200, 'people', true, 'Profile Picture'),
+            'status' => $this->faker->randomElement(['Active', 'Inactive', 'Pending']),
+            'company' => $this->faker->company(),
+            'email_verified_at' => $this->faker->optional()->dateTime(),
         ];
     }
 
     /**
-     * Indicate that the model's email address should be unverified.
+     * Generate a 6-digit user_id starting with "11" and randomize the remaining digits.
      */
-    public function unverified(): static
+    private function generateCustomUserId(): int
     {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+        // Prefix "11" followed by 4 random digits
+        return (int) ('11' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
     }
 }

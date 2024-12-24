@@ -2,31 +2,75 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Str;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Models\Procurement\PurchaseRequisition;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes, HasRoles, HasApiTokens;
+
+    public $incrementing = false; // Disable auto-incrementing for the primary key
+    protected $keyType = 'string'; // Indicate the primary key is a string (UUID)
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->id)) {
+                $model->id = (string) Str::uuid(); // Generate UUID for primary key
+            }
+
+            if (empty($model->user_id)) {
+                $model->user_id = static::generateUniqueUserId(); // Generate unique 6-digit user_id
+            }
+        });
+    }
+
+    /**
+     * Generate a unique 6-digit user ID starting at 11XXXX.
+     */
+    protected static function generateUniqueUserId(): int
+    {
+        do {
+            // Generate a 6-digit number starting with "11" followed by 4 random digits
+            $randomUserId = (int) ('11' . random_int(1000, 9999));
+        } while (static::query()->where('user_id', $randomUserId)->exists()); // Ensure uniqueness
+
+        return $randomUserId;
+    }
+
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'id',
+        'user_id',
+        'first_name',
+        'last_name',
+        'username',
         'email',
         'password',
+        'address',
+        'contact',
+        'profile_picture',
+        'status',
+        'company',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var list<string>
+     * @var array<int, string>
      */
     protected $hidden = [
         'password',
@@ -34,15 +78,35 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    /**
+     * Accessor to get the full name of the user.
+     */
+    public function getFullNameAttribute(): string
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * Relationship: Vendor's purchase requisitions.
+     */
+    public function purchaseRequisitions()
+    {
+        return $this->hasMany(PurchaseRequisition::class, 'vendor_id');
+    }
+
+    /**
+     * Relationship: Requisitions created by this user.
+     */
+    public function createdRequisitions()
+    {
+        return $this->hasMany(PurchaseRequisition::class, 'created_by');
     }
 }
