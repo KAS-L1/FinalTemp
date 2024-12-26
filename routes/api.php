@@ -56,3 +56,7 @@ Route::prefix('roles')->group(function () {
     Route::delete('/{role}', [RoleController::class, 'destroy']); // Delete a role
     Route::post('/{role}/permissions', [RoleController::class, 'assignPermission']); // Assign permissions to a role
 });
+
+Route::post('/test-login', function () {
+    return response()->json(['message' => 'Test route working']);
+});

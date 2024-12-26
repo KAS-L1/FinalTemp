@@ -27,6 +27,10 @@ class BudgetApprovalFactory extends Factory
 
     private function generateUniqueApprovalId(): int
     {
-        return (int) ('55' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $approvalId = (int) ('55' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (BudgetApproval::where('approval_id', $approvalId)->exists()); // Check for uniqueness in the database
+
+        return $approvalId;
     }
 }

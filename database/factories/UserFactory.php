@@ -40,7 +40,10 @@ class UserFactory extends Factory
      */
     private function generateCustomUserId(): int
     {
-        // Prefix "11" followed by 4 random digits
-        return (int) ('11' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $userId = (int) ('11' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (User::where('user_id', $userId)->exists()); // Check for uniqueness in the database
+
+        return $userId;
     }
 }

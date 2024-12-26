@@ -26,6 +26,10 @@ class ProductFactory extends Factory
 
     private function generateUniqueProductId(): int
     {
-        return (int) ('22' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $productId = (int) ('22' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (product::where('product_id', $productId)->exists()); // Check for uniqueness in the database
+
+        return $productId;
     }
 }

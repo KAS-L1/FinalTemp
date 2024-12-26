@@ -29,6 +29,10 @@ class PurchaseRequisitionFactory extends Factory
 
     private function generateUniqueRequisitionId(): int
     {
-        return (int) ('33' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $requisitionId = (int) ('33' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (PurchaseRequisition::where('requisition_id', $requisitionId)->exists()); // Check for uniqueness in the database
+
+        return $requisitionId;
     }
 }

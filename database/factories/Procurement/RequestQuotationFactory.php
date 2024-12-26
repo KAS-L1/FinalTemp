@@ -28,6 +28,10 @@ class RequestQuotationFactory extends Factory
 
     private function generateUniqueRfqId(): int
     {
-        return (int) ('66' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $rfqId = (int) ('66' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (RequestQuotation::where('rfq_id', $rfqId)->exists()); // Check for uniqueness in the database
+
+        return $rfqId;
     }
 }

@@ -27,6 +27,10 @@ class PurchaseItemFactory extends Factory
 
     private function generateUniquePurchaseId(): int
     {
-        return (int) ('44' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        do {
+            $purchaseId = (int) ('44' . str_pad(random_int(0, 9999), 4, '0', STR_PAD_LEFT));
+        } while (PurchaseItem::where('purchase_id', $purchaseId)->exists()); // Check for uniqueness in the database
+
+        return $purchaseId;
     }
 }
