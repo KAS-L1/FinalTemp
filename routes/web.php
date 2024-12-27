@@ -34,6 +34,10 @@ Route::middleware(['auth', 'role:Admin|Super-Admin|Manager|Logistic'])->group(fu
     Route::get('dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/analytics', function () {
+        return view('dashboard.analytics');
+    })->name('analytics');
 });
 
 
