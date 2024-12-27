@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('/assets/images/favicon.svg') }}" type="image/x-icon" />
+    {{-- <link rel="icon" href="{{ asset('/assets/images/favicon.svg') }}" type="image/x-icon" /> --}}
     <link rel="stylesheet" href="{{ asset('/assets/css/plugins/dataTables.bootstrap5.min.css') }}" />
     <!-- [Font] Family -->
     <link rel="stylesheet" href="{{ asset('/assets/fonts/inter/inter.css') }}" id="main-font-link" />
