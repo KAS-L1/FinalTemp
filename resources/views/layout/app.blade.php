@@ -29,15 +29,14 @@
     <link rel="stylesheet" href="{{ asset('/assets/fonts/material.css') }}" />
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" id="main-style-link" />
-    <script src="{{ asset('/assets/js/tech-stack.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/assets/css/style-preset.css') }}" />
+    <script src="{{ asset('/assets/js/tech-stack.js') }}"></script>
     {{-- <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
 
 
     <!-- Scripts -->
@@ -82,6 +81,8 @@
     {{-- <x-footer /> --}}
 
     <!-- Required Js -->
+    <script src="{{ asset('/assets/js/plugins/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/pages/dashboard-default.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('/assets/js/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/simplebar.min.js') }}"></script>
@@ -95,6 +96,12 @@
     <script src="{{ asset('/assets/js/plugins/dataTables.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/scroller.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/plugins/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/pages/ac-alert.js') }}"></script>
+    <script src="assets/js/plugins/wow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="assets/js/plugins/Jarallax.js"></script>
 
     <script>
         // pc-component
@@ -127,8 +134,7 @@
             }
         });
     </script>
-    <script src="{{ asset('/assets/js/plugins/sweetalert2.all.min.js') }}"></script>
-    <script src="{{ asset('/assets/js/pages/ac-alert.js') }}"></script>
+
 </body>
 
 </html>
