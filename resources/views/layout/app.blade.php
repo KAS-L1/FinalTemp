@@ -81,16 +81,16 @@
     {{-- <x-footer /> --}}
 
     <!-- Required Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="{{ asset('/assets/js/plugins/apexcharts.min.js') }}"></script>
     <script src="{{ asset('/assets/js/pages/dashboard-default.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('/assets/js/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/simplebar.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/bootstrap.min.js') }}"></script>
     <script src="{{ asset('/assets/js/fonts/custom-font.js') }}"></script>
     <script src="{{ asset('/assets/js/pcoded.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/feather.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="{{ asset('/assets/js/plugins/clipboard.min.js') }}"></script>
     <script src="{{ asset('/assets/js/component.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/dataTables.min.js') }}"></script>
@@ -98,10 +98,10 @@
     <script src="{{ asset('/assets/js/plugins/scroller.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('/assets/js/pages/ac-alert.js') }}"></script>
-    <script src="assets/js/plugins/wow.min.js"></script>
+    <script src="{{ asset('/assets/js/plugins/wow.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/jquery.marquee/1.4.0/jquery.marquee.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="assets/js/plugins/Jarallax.js"></script>
+    <script src="{{ asset('/assets/js/plugins/Jarallax.js') }}"></script>
 
 
     <script>

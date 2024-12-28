@@ -151,13 +151,3 @@
 
         </div>
 </nav>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.pc-hasmenu').addEventListener('click', function(event) {
-            event.preventDefault();
-            var submenu = this.querySelector('.pc-submenu');
-            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-</script>
