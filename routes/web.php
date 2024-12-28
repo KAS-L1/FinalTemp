@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Procurement\PurchaseItemController;
 use App\Http\Controllers\Procurement\PurchaseRequisitionController;
 
 Route::get('/', function () {
@@ -35,9 +36,11 @@ Route::middleware(['auth', 'role:Admin|Super-Admin|Manager|Logistic'])->group(fu
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/analytics', function () {
+    Route::get('/dashboard/analytics', function () {
         return view('dashboard.analytics');
-    })->name('analytics');
+    });
+
+    Route::get('dashboard/analytics', [PurchaseItemController::class, 'purchasedOrders']);
 });
 
 

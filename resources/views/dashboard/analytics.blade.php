@@ -4,10 +4,10 @@
                 <div class="col-4">
                     <div class="card ">
                         <div class="card-header">
-                            <h5>Card 1</h5>
+                            <h5>Orders</h5>
                         </div>
                         <div class="card-body">
-                            <p>Content 1</p>
+                            <p>{{ $purchaseItemCount }}</p>
                         </div>
                     </div>
                 </div>

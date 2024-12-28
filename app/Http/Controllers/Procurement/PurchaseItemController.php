@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Procurement;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Procurement\PurchaseItem;
-use Illuminate\Http\Request;
 
 class PurchaseItemController extends Controller
 {
@@ -63,5 +64,11 @@ class PurchaseItemController extends Controller
         $item->delete();
 
         return response()->json(['message' => 'Purchase item deleted successfully']);
+    }
+
+    public function purchasedOrders()
+    {
+        $purchaseItemCount = PurchaseItem::count();  // Count all PurchaseItem records
+        return view('dashboard.analytics', compact('purchaseItemCount'));
     }
 }

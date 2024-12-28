@@ -68,7 +68,8 @@
                         <span class="pc-badge">2</span>
                     </a>
                     <ul class="pc-submenu">
-                        <li class="pc-item"><a class="pc-link" href="{{ route('analytics') }}">Analytics</a></li>
+                        <li class="pc-item"><a class="pc-link" href="{{ url('dashboard/analytics') }}">Analytics</a>
+                        </li>
                         <li class="pc-item"><a class="pc-link" href="#">Predictive</a></li>
                     </ul>
                 </li>
