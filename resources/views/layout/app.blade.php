@@ -66,6 +66,8 @@
     <div class="pc-container">
         <div class="pc-content">
 
+            <div class="page-header">
+            </div>
 
             <!-- [ Main Content ] start -->
             <div class="container">
