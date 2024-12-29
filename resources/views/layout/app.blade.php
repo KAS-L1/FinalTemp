@@ -9,9 +9,9 @@
 
     <title>{{ config('app.name', 'Logistics 2') }}</title>
 
-    <!-- Fonts -->
+    {{-- <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" /> --}}
     <!-- [Favicon] icon -->
     <link rel="icon" href="{{ asset('/assets/images/favicon.svg') }}" type="image/x-icon" />
     <!-- [Font] Family -->
@@ -28,9 +28,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/fonts/material.css') }}" />
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}" id="main-style-link" />
-    <script src="{{ asset('/assets/js/tech-stack.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/assets/css/style-preset.css') }}" />
-    <link rel="stylesheet" href="{{ asset('/assets/css/uikit.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/plugins/dataTables.bootstrap5.min.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
@@ -77,6 +75,7 @@
 
     <!-- Required Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../assets/js/pages/dashboard-default.js"></script>
     <script src="{{ asset('/assets/js/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/simplebar.min.js') }}"></script>
     <script src="{{ asset('/assets/js/plugins/bootstrap.min.js') }}"></script>
