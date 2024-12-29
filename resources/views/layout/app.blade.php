@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Logistics 2') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -110,7 +110,7 @@
         //             elem[l].style.display = 'none';
         //         }
         //     }
-        });
+        // });
     </script>
     <script src="{{ asset('/assets/js/plugins/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('/assets/js/pages/ac-alert.js') }}"></script>
