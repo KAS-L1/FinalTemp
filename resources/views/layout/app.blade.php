@@ -54,10 +54,14 @@
     <!-- [ Pre-loader ] End -->
 
     <!-- [ Sidebar Menu ] start -->
-    <x-sidebar-menu />
+    <nav class="pc-sidebar">
+        <x-sidebar-menu />
+    </nav>
     <!-- [ Sidebar Menu ] end -->
     <!-- [ Header Topbar ] start -->
-    <x-header />
+    <header class="pc-header">
+        <x-header />
+    </header>
     <!-- [ Header ] end -->
 
 
