@@ -31,6 +31,7 @@
     <script src="{{ asset('/assets/js/tech-stack.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/assets/css/style-preset.css') }}" />
     <link rel="stylesheet" href="{{ asset('/assets/css/uikit.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/plugins/dataTables.bootstrap5.min.css') }}" />
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 
@@ -85,6 +86,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="{{ asset('/assets/js/plugins/clipboard.min.js') }}"></script>
     <script src="{{ asset('/assets/js/component.js') }}"></script>
+    <script src="{{ asset('/assets/js/plugins/dataTables.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('/assets/js/plugins/scroller.bootstrap5.min.js') }}"></script>
     <script>
         // pc-component
         var elem = document.querySelectorAll('.component-list-card a');
